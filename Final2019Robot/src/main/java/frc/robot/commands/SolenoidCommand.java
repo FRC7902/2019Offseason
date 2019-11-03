@@ -34,7 +34,6 @@ public class SolenoidCommand extends Command {
       //Robot.solenoidSubsystem.closeValve();
       Robot.solenoidSubsystem.openBackValve();
     }
-
   }
 
   // Make this return true when this Command no longer needs to run execute()

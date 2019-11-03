@@ -13,7 +13,6 @@ import frc.robot.RobotMap;
 
 public class IntakeCommand extends Command {
 
-  
   public IntakeCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);

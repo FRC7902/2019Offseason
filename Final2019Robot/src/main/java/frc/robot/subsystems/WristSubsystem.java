@@ -16,7 +16,6 @@ import frc.robot.RobotMap;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
-
 /**
  * Add your docs here.
  */
@@ -99,15 +98,11 @@ public class WristSubsystem extends Subsystem {
 
   public void setWristPosition(int desPosition, double speed, double grav){//to move the desired position
 
-    
-    
     //calculate error
     // int error = 0;
     
     // error = desPosition - getWristPosition();
     
-    
-
     // //P
     // double p = error/RobotMap.PIDthreshold;
 
@@ -122,13 +117,10 @@ public class WristSubsystem extends Subsystem {
     // //D
     // double d = 0;
     
-    
     // //Output
     // double power = RobotMap.kP * p + RobotMap.kI * i + RobotMap.kD * d;
     
     // myTalon.set(ControlMode.PercentOutput, power);//in between -1 and 1
-    
-    
     
     //FOR A BACKUP
     int lim = 256;
@@ -153,7 +145,6 @@ public class WristSubsystem extends Subsystem {
       }
     }
   }
-  
 
   // public void detectPresetButton(){
   //   // if(Robot.m_oi.getDriverStick().getRawButton(1)){//if "A" button is pressed
@@ -164,7 +155,6 @@ public class WristSubsystem extends Subsystem {
   //   //   setWristPosition(RobotMap.midPos);
   //   // }
   // }
-
 
   @Override
   public void initDefaultCommand() {

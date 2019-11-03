@@ -29,14 +29,10 @@ public class IntakeSubsystem extends Subsystem {
   public WPI_VictorSPX bottomMotor = new WPI_VictorSPX(RobotMap.intakeBottom);
 
   public IntakeSubsystem(){
-
     //will have to adjust
     topMotor.setInverted(false);
     bottomMotor.setInverted(true);
-
   }
-
-  
 
   public void moveIntake(boolean trig1, boolean trig2, double inSpeed, double outSpeed){//moves the intake in and out
 
@@ -86,12 +82,11 @@ public class IntakeSubsystem extends Subsystem {
     // }
   }
 
-  
-
   public void stopIntake(){//stops the intake
     topMotor.stopMotor();
     bottomMotor.stopMotor();
   }
+  
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.

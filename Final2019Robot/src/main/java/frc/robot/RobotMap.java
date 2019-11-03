@@ -25,9 +25,9 @@ public class RobotMap {
   public static final int intakeBottom = 8;
 
   //Solenoid Valves
+  //Check the values
   public static final int frontValve = 0;
   public static final int backValve = 1;
-
   
   //COMMAND CENTER
 
@@ -41,9 +41,6 @@ public class RobotMap {
 
   public static final int driveMicroFBButton = 9;
   public static final int driveMicroTurnButton = 10;
-
-  
-
 
   //Wrist
 
@@ -72,13 +69,12 @@ public class RobotMap {
   // public static final int lowPos = 512;
   // public static final int midPos = 256;
 
-
   //Intake
   public static final double intakeSpeed = 0.75;
   public static final double outtakeSpeed = -1;
 
-
   //a method for removing an element from an array
+  // We could just use ArrayList<>
   public static float[] removeTheElement(float[] arr, int index){
     if (arr == null || index < 0 || index >= arr.length){
       return arr;
@@ -95,7 +91,6 @@ public class RobotMap {
     }
 
     return anotherArray;
-
   }
 
   

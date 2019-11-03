@@ -34,7 +34,6 @@ public class DriveToDistanceCommand extends Command {
     Robot.driveSubsystem.stop();
     //Robot.driveSubsystem.encReset();
     driveCommand.cancel();
-
   }
 
   // Called repeatedly when this Command is scheduled to run
@@ -48,8 +47,6 @@ public class DriveToDistanceCommand extends Command {
   protected boolean isFinished() {
     //return Math.abs(Robot.driveSubsystem.getAvgDistance()-distance)<=0.1;
     return false;
-    
-
   }
 
   // Called once after isFinished returns true

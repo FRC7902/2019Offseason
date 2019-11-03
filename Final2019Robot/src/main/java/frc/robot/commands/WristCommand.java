@@ -22,7 +22,6 @@ public class WristCommand extends Command {
   @Override
   protected void initialize() {//at the start...
     Robot.wristSubsystem.stopWrist();//stop the Wrist
-    
   }
 
   // Called repeatedly when this Command is scheduled to run
@@ -43,7 +42,6 @@ public class WristCommand extends Command {
     }else{
       Robot.wristSubsystem.moveWrist(Robot.m_oi.getDriverStick(), RobotMap.wristSpeed, RobotMap.wristGrav);//take the operator's stick and a speed of 1
     } 
-    
     //Robot.wristSubsystem.moveWrist(Robot.m_oi.getDriverStick(), 0.5);//take the operator's stick and a speed of 1
   }
   // Make this return true when this Command no longer needs to run execute()
@@ -54,13 +52,10 @@ public class WristCommand extends Command {
 
   // Called once after isFinished returns true
   @Override
-  protected void end() {
-    
-  }
+  protected void end() {}
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
-  protected void interrupted() {
-  }
+  protected void interrupted() {}
 }

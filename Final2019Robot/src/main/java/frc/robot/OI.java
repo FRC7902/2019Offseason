@@ -16,12 +16,8 @@ public class OI {
   
   Joystick driverStick = new Joystick(0);
 
-
   public Joystick getDriverStick() {
     return driverStick;
   }
-
-  
-
 
 }
