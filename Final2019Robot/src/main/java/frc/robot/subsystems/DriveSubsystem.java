@@ -5,6 +5,8 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
+
+//Imports
 package frc.robot.subsystems;
 
 import frc.robot.RobotMap;
@@ -31,13 +33,6 @@ public class DriveSubsystem extends Subsystem {
   // group these motors as speedControllers
   SpeedController leftSide = new SpeedControllerGroup(frontLeft, backLeft);
   SpeedController rightSide = new SpeedControllerGroup(frontRight, backRight);
-
-  /*
-   * Encoder leftEnc = new Encoder(RobotMap.leftEnc1, RobotMap.leftEnc2, false,
-   * Encoder.EncodingType.k4X); Encoder rightEnc = new Encoder(RobotMap.rightEnc1,
-   * RobotMap.rightEnc2, false, Encoder.EncodingType.k4X);
-   */
-  float yOut = 0;
   
   //Satellites
   public boolean microDriveFBButtonPressed = false;
@@ -56,7 +51,6 @@ public class DriveSubsystem extends Subsystem {
     // drive is a new DifferentialDrive
     drive = new DifferentialDrive(leftSide, rightSide);
 
-    // rightEnc.setReverseDirection(true);
   }
 
   // this method is for Joystick driving
@@ -69,28 +63,19 @@ public class DriveSubsystem extends Subsystem {
     microDriveFBButtonPressed = joystick.getRawButton(RobotMap.driveMicroFBButton);
     microDriveTurnButtonPressed = joystick.getRawButton(RobotMap.driveMicroTurnButton);
 
-    if(joystick.getRawButton(RobotMap.driveMicroFBButton) || joystick.getRawButton(RobotMap.driveMicroTurnButton)){//if a microDrive(joystick button presses)
-      if(joystick.getRawButton(RobotMap.driveMicroFBButton)){//microDrive for Front and Back
-        ySpeed = 0.01;
-        
-      }
-      if(joystick.getRawButton(RobotMap.driveMicroTurnButton)){//microDrive for turning
-        turnSpeed = 0.01;
-      }
-    }else{//if not MicroDrive
+    
+    //MicroDrive Code (May not be relevant)
+    if(joystick.getRawButton(RobotMap.driveMicroFBButton)){//microDrive for Front and Back
+      ySpeed = 0.01;
       
-      // if((joystick.getRawAxis(1) > (double) yOut && joystick.getRawAxis(1) > RobotMap.driveStopRange) || (joystick.getRawAxis(1) < (double)yOut && joystick.getRawAxis(1) < -RobotMap.driveStopRange) ) {
-      //   //if joystick.getRawAxis is bigger than yOut and driveStopRange OR if joystick.getRawAxis is smaller than yOut and -driveStopRange
-      //   yOut = yOut + (float) joystick.getRawAxis(1) * 0.01f; // increment yOut by a bit of joystick.getRawAxis
-      
-      // }else if (joystick.getRawAxis(1) > -RobotMap.driveStopRange && joystick.getRawAxis(1) < RobotMap.driveStopRange) { // if joystick.getRawAxis is in between driveStopRange and -driveStopRange
-      //   yOut = 0f; // yOut is now 0
-      // }
     }
+    if(joystick.getRawButton(RobotMap.driveMicroTurnButton)){//microDrive for turning
+      turnSpeed = 0.01;
+    }
+    
     
     leftSide.set((-joystick.getRawAxis(1)*ySpeed - joystick.getRawAxis(4)*turnSpeed)*speedLimiter);
     rightSide.set((-joystick.getRawAxis(1)*ySpeed + joystick.getRawAxis(4)*turnSpeed)*speedLimiter);
-    //drive.arcadeDrive((double) yOut * speed, joystick.getX() * speed);
   }
 
   public void displayInfo(){
@@ -98,21 +83,6 @@ public class DriveSubsystem extends Subsystem {
     SmartDashboard.putString("DB/String 1", "TurnMicro: " + microDriveTurnButtonPressed);
   }
 
-
-  // this method is just for normal driving
-  // public void drive(double speed, double rotationSpeed) {
-  //   drive.arcadeDrive(speed, rotationSpeed);
-  // }
-
-  // public void overDrive(Joystick joystick){
-  //   leftSide.set((-joystick.getRawAxis(1) - joystick.getRawAxis(4)*0.5));
-  //   rightSide.set((-joystick.getRawAxis(1) + joystick.getRawAxis(4)*0.5));
-  // }
-
-  // public void microDrive(Joystick joystick, double speed){
-  //   leftSide.set((-joystick.getRawAxis(1) - joystick.getRawAxis(4)*0.5)*speed);
-  //   rightSide.set((-joystick.getRawAxis(1) + joystick.getRawAxis(4)*0.5)*speed);
-  // }
 
   // this will end the motor
   public void stop() {

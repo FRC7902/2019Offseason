@@ -5,6 +5,8 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
+
+//Imports
 package frc.robot.subsystems;
 
 import frc.robot.RobotMap;
@@ -12,9 +14,6 @@ import frc.robot.RobotMap;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-/**
- * The solenoid subsystem. I still don't know what we are going to do with this.
- */
 public class SolenoidSubsystem extends Subsystem {
 
   // Declaration and Initiation

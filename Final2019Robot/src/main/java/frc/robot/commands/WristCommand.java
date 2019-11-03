@@ -13,9 +13,7 @@ import frc.robot.RobotMap;
 
 public class WristCommand extends Command {
   public WristCommand() {
-    // Use requires() here to declare subsystem dependencies
-    // eg. requires(chassis);
-    requires(Robot.wristSubsystem);//this command requires the subsystem
+    requires(Robot.wristSubsystem);
   }
 
   // Called just before this Command runs the first time
@@ -34,7 +32,6 @@ public class WristCommand extends Command {
       Robot.wristSubsystem.resetPos();
     }
     if(Robot.m_oi.getDriverStick().getRawButton(2)){//b button
-      //Robot.wristSubsystem.detectPresetButton();//constantly detect if button is pressed
       Robot.wristSubsystem.setWristPosition(RobotMap.wristCargoPos, RobotMap.wristCargoMult, RobotMap.wristCargoGrav);//for cargo
 
     }else if(Robot.m_oi.getDriverStick().getRawButton(1)){//other button
@@ -44,7 +41,7 @@ public class WristCommand extends Command {
       Robot.wristSubsystem.moveWrist(Robot.m_oi.getDriverStick(), RobotMap.wristSpeed, RobotMap.wristGrav);//take the operator's stick and a speed of 1
     } 
     
-    //Robot.wristSubsystem.moveWrist(Robot.m_oi.getDriverStick(), 0.5);//take the operator's stick and a speed of 1
+    
   }
   // Make this return true when this Command no longer needs to run execute()
   @Override

@@ -5,6 +5,8 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
+
+//Imports
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -13,6 +15,7 @@ import frc.robot.RobotMap;
 
 public class DriveCommand extends Command {
   public DriveCommand() {
+    //requires the subsystem it is depended on
     requires (Robot.driveSubsystem);
   }
   

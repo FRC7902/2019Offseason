@@ -18,21 +18,16 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
   
-/**
- * Add your docs here.
- */
+
 public class IntakeSubsystem extends Subsystem {
-  // Put methods for controlling this subsystem
-  // here. Call these from Commands.
-  //Victor topMotor = new Victor(RobotMap.intakeTop);
-  //Victor bottomMotor = new Victor(RobotMap.intakeBottom);
-  DigitalInput limitSwitch = new DigitalInput(0);//channel 1
+  
+  //Create Motors
   public WPI_VictorSPX topMotor = new WPI_VictorSPX(RobotMap.intakeTop);
   public WPI_VictorSPX bottomMotor = new WPI_VictorSPX(RobotMap.intakeBottom);
 
   public IntakeSubsystem(){
 
-    //will have to adjust
+    //Invert Motors
     topMotor.setInverted(false);
     bottomMotor.setInverted(true);
 
@@ -48,44 +43,8 @@ public class IntakeSubsystem extends Subsystem {
     }else if(trig2 && !trig1){//if only left
       topMotor.set(outSpeed);
       bottomMotor.set(outSpeed);
-    }else{
-      //topMotor.set(0);
-      //bottomMotor.set(0);
     }
 
-
-    // if(trig1-trig2 > 0){//if inning
-    //   topMotor.set((trig1-trig2)*speed);
-    //   bottomMotor.set((trig1-trig2)*speed);
-
-    // }else if(trig1-trig2 < 0){
-    //   topMotor.set(trig1-trig2);
-    //   bottomMotor.set(trig1-trig2);
-    // }else{
-    //   topMotor.set(0);
-    //   bottomMotor.set(0);
-    // }
-    
-
-
-    // if(limitSwitch.get()){//if the ball is in the intake...
-
-    //   if(trig1-trig2 < 0){
-    //     topMotor.set(trig1-trig2);
-    //     bottomMotor.set(trig1-trig2);
-    //   }
-    //   // topMotor.set((-trig2)*speed);//trig2 now can eject the ball for the topMotor,
-    //   // bottomMotor.set((-trig2)*speed);//and the bottom motor
-
-    // }else{//if the ball is not in the intake...
-    //   if(Robot.m_oi.getDriverStick().getRawButton(2)){//only if the "B" is pressed
-    //     topMotor.set(trig1-trig2);
-    //     bottomMotor.set(trig1-trig2);
-    //     // topMotor.set((trig1)*speed);//then the ball can be ejected from trig1
-    //     // bottomMotor.set((trig1)*speed);
-    //   }
-      
-    // }
   }
 
   

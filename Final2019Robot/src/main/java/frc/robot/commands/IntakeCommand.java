@@ -5,6 +5,7 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
+
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -15,8 +16,6 @@ public class IntakeCommand extends Command {
 
   
   public IntakeCommand() {
-    // Use requires() here to declare subsystem dependencies
-    // eg. requires(chassis);
     requires(Robot.intakeSubsystem);
   }
 
