@@ -66,8 +66,10 @@ public class WristSubsystem extends Subsystem {
 
   public void displayInfo(){
     SmartDashboard.putString("DB/String 2", "WristPos: " + Integer.toString(getWristPosition()));
-    SmartDashboard.putString("DB/String 3", "Bpressed: " + Boolean.toString(Robot.m_oi.getDriverStick().getRawButton(2)));
-    SmartDashboard.putString("DB/String 4", "cGrav: " + counterGrav);
+    SmartDashboard.putString("DB/String 3", "Ypressed: " + Boolean.toString(Robot.m_oi.getDriverStick().getRawButton(4)));
+    SmartDashboard.putString("DB/String 4", "Error: " + Integer.toString(error));
+    SmartDashboard.putString("DB/String 5", "Pout: " + Double.toString(Pout));
+    SmartDashboard.putString("DB/String 6", "Output: "+ Double.toString(output));
   }
   
 
@@ -98,6 +100,26 @@ public class WristSubsystem extends Subsystem {
     }
   }
   
+  double sum = 0;
+  int error;
+  double Pout;
+  double output;
+  public void setWristPositionPID(int desPosition){
+    
+    error = getWristPosition() - desPosition;
+
+    //Present
+    Pout = RobotMap.Pmult * error;
+
+    //Integral
+    sum = RobotMap.Imult * error;
+
+    output = Pout*RobotMap.Pweight + sum*RobotMap.Iweight;
+
+    myTalon.set(ControlMode.PercentOutput, output);
+    myTalon2.set(ControlMode.PercentOutput, output);
+    
+  }
 
 
   @Override

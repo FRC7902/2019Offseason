@@ -26,14 +26,14 @@ public class WristCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {//when the command is running
-    Robot.wristSubsystem.displayInfo();//2, 3, 4
+    Robot.wristSubsystem.displayInfo();//2, 3, 4, 5, 6
 
     if(Robot.m_oi.getDriverStick().getRawButton(8)){
       Robot.wristSubsystem.resetPos();
     }
-    if(Robot.m_oi.getDriverStick().getRawButton(2)){//b button
-      Robot.wristSubsystem.setWristPosition(RobotMap.wristCargoPos, RobotMap.wristCargoMult, RobotMap.wristCargoGrav);//for cargo
-
+    if(Robot.m_oi.getDriverStick().getRawButton(4)){//Y button
+      //Robot.wristSubsystem.setWristPosition(RobotMap.wristCargoPos, RobotMap.wristCargoMult, RobotMap.wristCargoGrav);//for cargo
+      Robot.wristSubsystem.setWristPositionPID(RobotMap.wristCargoPos);
     }else if(Robot.m_oi.getDriverStick().getRawButton(1)){//other button
 
       Robot.wristSubsystem.setWristPosition(RobotMap.wristHatchPos, RobotMap.wristHatchMult, RobotMap.wristHatchGrav);//for hatch

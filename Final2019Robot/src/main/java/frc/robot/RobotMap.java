@@ -57,7 +57,12 @@ public class RobotMap {
   public static final double wristSpeed = 0.5;
   public static final double wristGrav = 0.0002;
 
+  //PID Wrist
+  public static final double Pmult = 0.001;
+  public static final double Imult = 0.001;
 
+  public static final double Pweight = 0;
+  public static final double Iweight = 1;
 
   //Intake
   public static final double intakeSpeed = 0.75;
