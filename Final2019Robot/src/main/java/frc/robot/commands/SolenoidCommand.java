@@ -9,6 +9,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.RobotMap;
 
 public class SolenoidCommand extends Command {
   public SolenoidCommand() {
@@ -24,13 +25,14 @@ public class SolenoidCommand extends Command {
   }
 
   // Called repeatedly when this Command is scheduled to run
+  // Find new button to control SOlenoid
   @Override
   protected void execute() {
-    if(Robot.m_oi.getDriverStick().getRawButton(2)){
+    if(Robot.m_oi.getDriverStick().getRawButton(RobotMap.B)){
       //Robot.solenoidSubsystem.closeValve();
       Robot.solenoidSubsystem.openFrontValve();
     }
-    if(Robot.m_oi.getDriverStick().getRawButton(3)){
+    if(Robot.m_oi.getDriverStick().getRawButton(RobotMap.X)){
       //Robot.solenoidSubsystem.closeValve();
       Robot.solenoidSubsystem.openBackValve();
     }

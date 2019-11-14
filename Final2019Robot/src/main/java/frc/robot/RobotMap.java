@@ -55,6 +55,29 @@ public class RobotMap {
   public static final double wristSpeed = 0.5;
   public static final double wristGrav = 0.0002;
 
+  // Triple check whether maps are correct
+  // Joystick - Button
+  public static final int A = 1,
+                          B = 2,
+                          X = 3,
+                          Y = 4,
+                          LB = 5, // Bumper
+                          RB = 6, // Bumper
+                          M = 7, // menu
+                          S = 8, // start
+                          LA = 9, // Press Left axis
+                          RA = 10; // Press right axis
+
+  // Joystick - Axis
+  public static final int LX = 1,
+                          LY = 2,
+                          LT = 3, // Tigger
+                          RT = 4, // Tigger
+                          RX = 5,
+                          RY = 6, 
+                          PX = 7, // D-Pad
+                          PY = 8; // D-Pad
+
   // public static final int wristBottomPos = 2048;
   // public static final int wristBackLimit = 0;//the backmost position the wrist can reach
   // public static final int wristFrontLimit = 1024;//the frontmost position the wrist can reach

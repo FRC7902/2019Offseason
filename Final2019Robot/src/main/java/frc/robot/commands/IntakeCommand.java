@@ -28,8 +28,8 @@ public class IntakeCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    //the right trigger - the left trigger
-    Robot.intakeSubsystem.moveIntake(Robot.m_oi.getDriverStick().getRawButton(6),Robot.m_oi.getDriverStick().getRawButton(5), RobotMap.intakeSpeed, RobotMap.outtakeSpeed);
+    //the right Bumper - the left bumper
+    Robot.intakeSubsystem.moveIntake(Robot.m_oi.getDriverStick().getRawButton(RobotMap.RB),Robot.m_oi.getDriverStick().getRawButton(RobotMap.LB), RobotMap.intakeSpeed, RobotMap.outtakeSpeed);
   }
 
   // Make this return true when this Command no longer needs to run execute()
