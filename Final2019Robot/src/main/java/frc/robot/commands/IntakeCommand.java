@@ -14,7 +14,6 @@ import frc.robot.RobotMap;
 
 public class IntakeCommand extends Command {
 
-  
   public IntakeCommand() {
     requires(Robot.intakeSubsystem);
   }

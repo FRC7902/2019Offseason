@@ -34,7 +34,6 @@ public class Robot extends TimedRobot {
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
 
-
   public static TeleOp teleOp = new TeleOp();
   @Override
   public void robotInit() {
@@ -47,10 +46,8 @@ public class Robot extends TimedRobot {
     
   }
 
-
   @Override
   public void robotPeriodic() {
-
     //Outputs
     SmartDashboard.putString("DB/String 0", "NA");
     SmartDashboard.putString("DB/String 1", "NA");
@@ -81,13 +78,11 @@ public class Robot extends TimedRobot {
     //in autonomous, we need to run teleOp 
     teleOp.start();//run the main teleOp command group
     
-  
     // schedule the autonomous command (example)
     if (m_autonomousCommand != null) {
       m_autonomousCommand.start();
     }
   }
-
 
   @Override
   public void autonomousPeriodic() {
@@ -98,20 +93,15 @@ public class Robot extends TimedRobot {
   public void teleopInit() {
 
     teleOp.start();//run the main teleOp command group
-
-
-
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();
     }
   }
 
-
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
   }
-
 
   @Override
   public void testPeriodic() {

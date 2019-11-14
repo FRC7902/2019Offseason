@@ -12,12 +12,10 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class TeleOp extends CommandGroup {
   
   public TeleOp() {
-    
-    
-    addParallel(new DriveCommand());//these will all run at the same time
+    //these will all run at the same time
+    addParallel(new DriveCommand());
     addParallel(new WristCommand());
     addParallel(new IntakeCommand());
     addParallel(new SolenoidCommand());
-
   }
 }

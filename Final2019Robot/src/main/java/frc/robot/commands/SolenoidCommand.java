@@ -32,7 +32,6 @@ public class SolenoidCommand extends Command {
     if(Robot.m_oi.getDriverStick().getRawButton(3)){
       Robot.solenoidSubsystem.openBackValve();
     }
-
   }
 
   // Make this return true when this Command no longer needs to run execute()

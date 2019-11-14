@@ -29,6 +29,7 @@ public class SolenoidSubsystem extends Subsystem {
     doubleSolenoid.set(DoubleSolenoid.Value.kForward);
   }
 
+  // Close Both Valves
   public void closeValve() {
     doubleSolenoid.set(DoubleSolenoid.Value.kOff);
   }

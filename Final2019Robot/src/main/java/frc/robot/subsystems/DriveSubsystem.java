@@ -20,8 +20,6 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-
-
 public class DriveSubsystem extends Subsystem {
 
   // make a new Victor for each of the motors
@@ -47,10 +45,8 @@ public class DriveSubsystem extends Subsystem {
     frontLeft.setInverted(true);
     backRight.setInverted(false);
     backLeft.setInverted(true);
-
     // drive is a new DifferentialDrive
     drive = new DifferentialDrive(leftSide, rightSide);
-
   }
 
   // this method is for Joystick driving
@@ -90,7 +86,5 @@ public class DriveSubsystem extends Subsystem {
   }
 
   @Override
-  protected void initDefaultCommand() {
-
-  }
+  protected void initDefaultCommand() {}
 }

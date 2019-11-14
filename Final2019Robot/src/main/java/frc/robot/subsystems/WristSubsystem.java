@@ -75,7 +75,6 @@ public class WristSubsystem extends Subsystem {
 
   public void setWristPosition(int desPosition, double speed, double grav){//to move the desired position
 
-
     //FOR A BACKUP
     int lim = 256; 
     if(getWristPosition() > desPosition){//if the arm is too forward, move it back
@@ -120,7 +119,6 @@ public class WristSubsystem extends Subsystem {
     myTalon2.set(ControlMode.PercentOutput, output);
     
   }
-
 
   @Override
   public void initDefaultCommand() {

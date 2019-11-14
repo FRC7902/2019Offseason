@@ -5,8 +5,6 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-
-
 //Imports all the library necessary
 package frc.robot.subsystems;
 
@@ -14,8 +12,6 @@ import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import frc.robot.Robot;
 import frc.robot.RobotMap;
   
 /**
@@ -38,8 +34,6 @@ public class IntakeSubsystem extends Subsystem {
 
   }
 
-  
-
   public void moveIntake(boolean trig1, boolean trig2, double inSpeed, double outSpeed){//moves the intake in and out
 
     if(trig1 && !trig2){//if only right
@@ -52,7 +46,6 @@ public class IntakeSubsystem extends Subsystem {
       topMotor.set(0);
       bottomMotor.set(0);
     }
-
 
     // if(trig1-trig2 > 0){//if inning
     //   topMotor.set((trig1-trig2)*speed);
@@ -88,12 +81,11 @@ public class IntakeSubsystem extends Subsystem {
     // }
   }
 
-  
-
   public void stopIntake(){//stops the intake
     topMotor.stopMotor();
     bottomMotor.stopMotor();
   }
+
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
