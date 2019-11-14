@@ -38,6 +38,9 @@ public class IntakeSubsystem extends Subsystem {
     }else if(trig2 && !trig1){//if only left
       topMotor.set(outSpeed);
       bottomMotor.set(outSpeed);
+    }else{
+      topMotor.set(0);
+      bottomMotor.set(0);
     }
 
   }
