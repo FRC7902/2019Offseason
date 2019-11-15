@@ -17,10 +17,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.TeleOp;
 import frc.robot.commands.WristCommand;
 import frc.robot.commands.DriveCommand;
-import frc.robot.subsystems.DriveSubsystem;
-import frc.robot.subsystems.IntakeSubsystem;
-import frc.robot.subsystems.SolenoidSubsystem;
-import frc.robot.subsystems.WristSubsystem;
+import frc.robot.subsystems.*;
 import frc.robot.commands.DriveToDistanceCommand;
 
 public class Robot extends TimedRobot {
@@ -29,6 +26,7 @@ public class Robot extends TimedRobot {
   public static IntakeSubsystem intakeSubsystem = new IntakeSubsystem();
   public static WristSubsystem wristSubsystem = new WristSubsystem();
   public static SolenoidSubsystem solenoidSubsystem = new SolenoidSubsystem();
+  public static PressureSubsystem pressureSubsystem = new PressureSubsystem();
   public static OI m_oi;
 
   Command m_autonomousCommand;

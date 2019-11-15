@@ -8,6 +8,7 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.RobotMap;
 import edu.wpi.first.wpilibj.Compressor;
 
 /**
@@ -20,8 +21,31 @@ public class PressureSubsystem extends Subsystem {
   private Compressor comp;
 
   public PressureSubsystem() {
-    comp = new Compressor();
-    comp.close();
+    comp = new Compressor(RobotMap.compressor);
+    // Turns on the limiter at 125psi
+    comp.setClosedLoopControl(true);
+  }
+
+  // Turn on compressor
+  public void start() {
+    comp.start();
+  }
+
+  // Turn off compressor
+  public void stop() {
+    comp.stop();
+  }
+
+  /**
+   * Toggle the state of the limiter (Please keep this on)
+   * 
+   * @param state
+   * the state of the limiter
+   */
+  public void setLimiter(boolean state) {
+    if(!state)
+      stop();
+    comp.setClosedLoopControl(state);
   }
 
   @Override
