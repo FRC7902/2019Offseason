@@ -30,7 +30,7 @@ public class WristCommand extends Command {
     if(Robot.m_oi.getDriverStick().getRawButton(RobotMap.S)){// Start Button
       Robot.wristSubsystem.resetPos();
     }
-    if(Robot.m_oi.getDriverStick().getRawButton(RobotMap.B)){//b button
+    if(Robot.m_oi.getDriverStick().getRawButton(RobotMap.A)){//b button
       //Robot.wristSubsystem.detectPresetButton();//constantly detect if button is pressed
       Robot.wristSubsystem.setWristPosition(RobotMap.wristCargoPos, RobotMap.wristCargoMult, RobotMap.wristCargoGrav);//for cargo
 

@@ -23,6 +23,7 @@ public class SolenoidCommand extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    startChecker();
     Robot.solenoidSubsystem.closeValve();
   }
 
