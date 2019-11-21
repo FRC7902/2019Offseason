@@ -19,6 +19,7 @@ import frc.robot.commands.WristCommand;
 import frc.robot.commands.DriveCommand;
 import frc.robot.subsystems.*;
 import frc.robot.commands.DriveToDistanceCommand;
+import frc.robot.commands.RegulatorCommand;
 
 public class Robot extends TimedRobot {
 
@@ -33,6 +34,7 @@ public class Robot extends TimedRobot {
   Command driveCommand = new DriveCommand();
   Command driveToDistanceCommand = new DriveToDistanceCommand(5, .5);
   Command wristCommand = new WristCommand();
+  Command regulatorCommand = new RegulatorCommand();
   SendableChooser<Command> m_chooser = new SendableChooser<>();
 
   public static TeleOp teleOp = new TeleOp();

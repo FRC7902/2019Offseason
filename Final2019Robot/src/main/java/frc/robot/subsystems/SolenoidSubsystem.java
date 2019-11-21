@@ -11,6 +11,7 @@ import frc.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.DigitalInput;
 
 /**
  * The solenoid subsystem. I still don't know what we are going to do with this.
@@ -19,6 +20,7 @@ public class SolenoidSubsystem extends Subsystem {
 
   // Declaration and Initiation
   private DoubleSolenoid doubleSolenoid = new DoubleSolenoid(RobotMap.frontValve, RobotMap.backValve);
+  private DigitalInput mag = new DigitalInput(RobotMap.magSwitch);
   
   public SolenoidSubsystem() {
     // Close both channels
@@ -38,6 +40,11 @@ public class SolenoidSubsystem extends Subsystem {
   // Vice versa
   public void openBackValve() {
     doubleSolenoid.set(DoubleSolenoid.Value.kReverse);
+  }
+
+  // Get state of solenoid
+  public boolean getState() {
+    return mag.get();
   }
 
   @Override

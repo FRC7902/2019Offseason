@@ -21,7 +21,7 @@ public class PressureSubsystem extends Subsystem {
   private Compressor comp;
 
   public PressureSubsystem() {
-    comp = new Compressor(RobotMap.compressor);
+    comp = new Compressor();
     // Turns on the limiter at 125psi
     comp.setClosedLoopControl(true);
   }
@@ -42,6 +42,7 @@ public class PressureSubsystem extends Subsystem {
    * @param state
    * the state of the limiter
    */
+  @Deprecated
   public void setLimiter(boolean state) {
     if(!state)
       stop();

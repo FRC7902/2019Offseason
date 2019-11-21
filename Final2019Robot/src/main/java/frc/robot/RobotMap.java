@@ -28,9 +28,9 @@ public class RobotMap {
   public static final int frontValve = 0;
   public static final int backValve = 1;
 
-  //Compressor
+  //Magnetic Switch
   // Check Values
-  public static final int compressor = 9;
+  public static final int magSwitch = 9;
   
   //COMMAND CENTER
 
