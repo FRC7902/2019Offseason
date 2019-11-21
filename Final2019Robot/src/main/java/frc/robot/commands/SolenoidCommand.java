@@ -25,7 +25,7 @@ public class SolenoidCommand extends Command {
   }
 
   // Called repeatedly when this Command is scheduled to run
-  // Find new button to control SOlenoid
+  // Find new button to control Solenoid
   @Override
   protected void execute() {
     if(Robot.m_oi.getDriverStick().getRawButton(RobotMap.B)){

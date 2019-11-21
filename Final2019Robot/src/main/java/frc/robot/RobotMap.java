@@ -24,7 +24,7 @@ public class RobotMap {
   public static final int intakeTop = 7;
   public static final int intakeBottom = 8;
 
-  //Solenoid Valves
+  //Solenoid Valves (PCM Port Values)
   public static final int frontValve = 0;
   public static final int backValve = 1;
 
@@ -38,7 +38,6 @@ public class RobotMap {
 
   public static final double driveSpeedLimiter = 0.6;
 
-  public static final double driveStopRange = 0.1;//the area when the joystick is ineffective
   public static final double driveFBSpeed = 1;
   public static final double driveTurnSpeed = 0.75;
 
@@ -84,16 +83,12 @@ public class RobotMap {
   // public static final int wristBottomPos = 2048;
   // public static final int wristBackLimit = 0;//the backmost position the wrist can reach
   // public static final int wristFrontLimit = 1024;//the frontmost position the wrist can reach
+  //PID Wrist
+  public static final double Pmult = 0.0005;
+  public static final double Imult = 0;
 
-  //PID
-  // public static final int PIDthreshold = 512;
-  // public static final double kP = 1;
-  // public static final double kI = 1;
-  // public static final double kD = 1;
-  
-  // public static final int groundPos = 1024;
-  // public static final int lowPos = 512;
-  // public static final int midPos = 256;
+  public static final double Pweight = 1;
+  public static final double Iweight = 1;
 
   //Intake
   public static final double intakeSpeed = 0.75;
