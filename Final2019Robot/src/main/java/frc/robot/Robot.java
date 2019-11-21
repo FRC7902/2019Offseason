@@ -5,6 +5,8 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
+
+//Imports
 package frc.robot;
 
 import edu.wpi.first.cameraserver.CameraServer;
@@ -14,11 +16,9 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+//Commands
 import frc.robot.commands.TeleOp;
-import frc.robot.commands.WristCommand;
-import frc.robot.commands.DriveCommand;
 import frc.robot.subsystems.*;
-import frc.robot.commands.DriveToDistanceCommand;
 import frc.robot.commands.RegulatorCommand;
 
 public class Robot extends TimedRobot {
@@ -31,9 +31,6 @@ public class Robot extends TimedRobot {
   public static OI m_oi;
 
   Command m_autonomousCommand;
-  Command driveCommand = new DriveCommand();
-  Command driveToDistanceCommand = new DriveToDistanceCommand(5, .5);
-  Command wristCommand = new WristCommand();
   Command regulatorCommand = new RegulatorCommand();
   SendableChooser<Command> m_chooser = new SendableChooser<>();
 
@@ -42,7 +39,7 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     m_oi = new OI();
     CameraServer.getInstance().startAutomaticCapture();
-    m_chooser.setDefaultOption("Default Auto", new DriveCommand());
+    m_chooser.setDefaultOption("Default Auto", new TeleOp());
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
     
@@ -52,6 +49,7 @@ public class Robot extends TimedRobot {
   @Override
   public void robotPeriodic() {
     //Outputs
+    /* 
     SmartDashboard.putString("DB/String 0", "NA");
     SmartDashboard.putString("DB/String 1", "NA");
     SmartDashboard.putString("DB/String 2", "NA");
@@ -62,6 +60,7 @@ public class Robot extends TimedRobot {
     SmartDashboard.putString("DB/String 7", "NA");
     SmartDashboard.putString("DB/String 8", "NA");
     SmartDashboard.putString("DB/String 9", "NA");
+    */
   }
 
   @Override
