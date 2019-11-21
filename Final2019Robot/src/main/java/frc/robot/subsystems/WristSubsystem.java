@@ -41,7 +41,7 @@ public class WristSubsystem extends Subsystem {
     //Move the motors based on joystick input, speed and gravity
     myTalon.set(ControlMode.PercentOutput, (joystick.getRawAxis(3)-joystick.getRawAxis(2))*speed+ counterGrav(gravMult));//the second joystick's Y-axis is the motor
     myTalon2.set(ControlMode.PercentOutput, (joystick.getRawAxis(3)-joystick.getRawAxis(2))*speed+counterGrav(gravMult));
-    SmartDashboard.putString("DB/String 8" , "Wristout: " + Double.toString((joystick.getRawAxis(3)-joystick.getRawAxis(2))*speed+ counterGrav(gravMult)));
+    SmartDashboard.putNumber("Joystick Power" , (joystick.getRawAxis(3)-joystick.getRawAxis(2))*speed+ counterGrav(gravMult));
   }
 
 
@@ -65,11 +65,18 @@ public class WristSubsystem extends Subsystem {
   }
 
   public void displayInfo(){
-    SmartDashboard.putString("DB/String 0", "WristPos: " + Integer.toString(getWristPosition()));
-    SmartDashboard.putString("DB/String 1", "Ypressed: " + Boolean.toString(Robot.m_oi.getDriverStick().getRawButton(4)));
-    SmartDashboard.putString("DB/String 2", "Error: " + Integer.toString(error));
-    SmartDashboard.putString("DB/String 3", "Pout: " + Double.toString(Pout));
-    SmartDashboard.putString("DB/String 4", "Output: "+ Double.toString(output));
+    // SmartDashboard.putString("DB/String 0", "WristPos: " + Integer.toString(getWristPosition()));
+    // SmartDashboard.putString("DB/String 1", "Ypressed: " + Boolean.toString(Robot.m_oi.getDriverStick().getRawButton(4)));
+    // SmartDashboard.putString("DB/String 2", "Error: " + Integer.toString(error));
+    // SmartDashboard.putString("DB/String 3", "Pout: " + Double.toString(Pout));
+    // SmartDashboard.putString("DB/String 4", "Output: "+ Double.toString(output));
+
+    SmartDashboard.putNumber("Wrist Position", getWristPosition());
+    SmartDashboard.putBoolean("Preset 1", Robot.m_oi.getDriverStick().getRawButton(4));
+    SmartDashboard.putNumber("Error", error);
+    SmartDashboard.putNumber("Pout", Pout);
+    SmartDashboard.putNumber("Output", output);
+
   }
   
 
@@ -100,13 +107,13 @@ public class WristSubsystem extends Subsystem {
   }
   
   double sum = 0;
-  int error;
+  int error=0;
   double Pout;
   double output;
   public void setWristPositionPID(int desPosition){
     
     error = desPosition - getWristPosition();
-
+    System.out.println(error);
     //Present
     Pout = RobotMap.Pmult * error;
 

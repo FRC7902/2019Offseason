@@ -77,6 +77,7 @@ public class DriveSubsystem extends Subsystem {
   public void displayInfo(){
     SmartDashboard.putString("DB/String 0", "FBMicro: " + microDriveFBButtonPressed);
     SmartDashboard.putString("DB/String 1", "TurnMicro: " + microDriveTurnButtonPressed);
+    
   }
 
 

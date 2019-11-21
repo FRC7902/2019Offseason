@@ -55,7 +55,7 @@ public class RobotMap {
 
   //PID Wrist
   public static final double Pmult = 0.0005;
-  public static final double Imult = 0.00005;
+  public static final double Imult = 0;
 
   public static final double Pweight = 1;
   public static final double Iweight = 1;
