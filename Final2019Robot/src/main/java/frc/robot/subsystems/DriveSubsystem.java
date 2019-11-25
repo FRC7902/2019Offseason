@@ -74,11 +74,7 @@ public class DriveSubsystem extends Subsystem {
     rightSide.set((-joystick.getRawAxis(1)*ySpeed + joystick.getRawAxis(4)*turnSpeed)*speedLimiter);
   }
 
-  public void displayInfo(){
-    SmartDashboard.putString("DB/String 0", "FBMicro: " + microDriveFBButtonPressed);
-    SmartDashboard.putString("DB/String 1", "TurnMicro: " + microDriveTurnButtonPressed);
-    
-  }
+
 
 
   // this will end the motor

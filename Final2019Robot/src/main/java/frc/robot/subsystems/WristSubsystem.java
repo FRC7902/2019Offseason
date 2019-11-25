@@ -51,6 +51,13 @@ public class WristSubsystem extends Subsystem {
 
   public int getWristPosition(){//get the position
     return (myTalon.getSelectedSensorPosition() % 4096)-startPos;
+    
+    //T1 - Remedy 2
+    //return (myTalon.getSelectedSensorPosition() % 4096)
+
+    //T1 - Remedy 3
+    //return (myTalon.getSelectedSensorPosition())
+    
 
   }
 
@@ -65,11 +72,6 @@ public class WristSubsystem extends Subsystem {
   }
 
   public void displayInfo(){
-    // SmartDashboard.putString("DB/String 0", "WristPos: " + Integer.toString(getWristPosition()));
-    // SmartDashboard.putString("DB/String 1", "Ypressed: " + Boolean.toString(Robot.m_oi.getDriverStick().getRawButton(4)));
-    // SmartDashboard.putString("DB/String 2", "Error: " + Integer.toString(error));
-    // SmartDashboard.putString("DB/String 3", "Pout: " + Double.toString(Pout));
-    // SmartDashboard.putString("DB/String 4", "Output: "+ Double.toString(output));
 
     SmartDashboard.putNumber("Wrist Position", getWristPosition());
     SmartDashboard.putBoolean("Preset 1", Robot.m_oi.getDriverStick().getRawButton(4));
