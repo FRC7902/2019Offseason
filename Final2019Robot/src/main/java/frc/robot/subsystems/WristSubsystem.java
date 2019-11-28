@@ -78,6 +78,7 @@ public class WristSubsystem extends Subsystem {
     SmartDashboard.putNumber("Error", error);
     SmartDashboard.putNumber("Pout", Pout);
     SmartDashboard.putNumber("Output", output);
+    SmartDashboard.putNumber("Joystick Response:", Robot.m_oi.getDriverStick().getRawAxis(1));
 
   }
   
