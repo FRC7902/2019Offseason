@@ -35,7 +35,7 @@ public class Robot extends TimedRobot {
   public static OI m_oi;
 
   Command m_autonomousCommand;
-  Command regulatorCommand = new RegulatorCommand();
+  //Command regulatorCommand = new RegulatorCommand();
   SendableChooser<Command> m_chooser = new SendableChooser<>();
 
   public static TeleOp teleOp = new TeleOp();

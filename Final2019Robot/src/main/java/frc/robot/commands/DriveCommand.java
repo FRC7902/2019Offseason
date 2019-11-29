@@ -29,6 +29,7 @@ public class DriveCommand extends Command {
   @Override
   protected void execute() {
     Robot.driveSubsystem.driveJoystick(Robot.m_oi.getDriverStick(), RobotMap.driveFBSpeed, RobotMap.driveTurnSpeed);//drive from the joystick at 0.5 speed
+    Robot.driveSubsystem.displayInfo();
   }
 
   // Make this return true when this Command no longer needs to run execute()
