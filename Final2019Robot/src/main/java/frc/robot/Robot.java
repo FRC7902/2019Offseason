@@ -31,7 +31,7 @@ public class Robot extends TimedRobot {
   public static IntakeSubsystem intakeSubsystem = new IntakeSubsystem();
   public static WristSubsystem wristSubsystem = new WristSubsystem();
   public static SolenoidSubsystem solenoidSubsystem = new SolenoidSubsystem();
-  public static PressureSubsystem pressureSubsystem = new PressureSubsystem();
+  public static RegulatorSubsystem regulatorSubsystem = new RegulatorSubsystem();
   public static OI m_oi;
 
   Command m_autonomousCommand;

@@ -115,7 +115,7 @@ public class WristSubsystem extends Subsystem {
   double output;
   public void setWristPositionPID(int desPosition){
     
-    error = desPosition - getWristPosition();
+    error = getWristPosition() - desPosition;
     System.out.println(error);
     //Present
     Pout = RobotMap.Pmult * error;

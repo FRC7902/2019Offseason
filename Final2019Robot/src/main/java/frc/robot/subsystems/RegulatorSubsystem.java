@@ -13,13 +13,13 @@ import edu.wpi.first.wpilibj.Compressor;
 /**
  * Pressure Subsystem 
  */
-public class PressureSubsystem extends Subsystem {
+public class RegulatorSubsystem extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
   private Compressor comp;
 
-  public PressureSubsystem() {
+  public RegulatorSubsystem() {
     comp = new Compressor();
     // Turns on the limiter at 125psi
     comp.setClosedLoopControl(true);
