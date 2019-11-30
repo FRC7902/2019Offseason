@@ -33,9 +33,6 @@ public class WristCommand extends Command {
     if(Robot.m_oi.getDriverStick().getRawButton(RobotMap.A)){//b button
       //Robot.wristSubsystem.detectPresetButton();//constantly detect if button is pressed
       Robot.wristSubsystem.setWristPositionPID(RobotMap.wristCargoPos);//for cargo
-
-    }else if(Robot.m_oi.getDriverStick().getRawButton(RobotMap.A)){//other button
-      Robot.wristSubsystem.setWristPosition(RobotMap.wristHatchPos, RobotMap.wristHatchMult, RobotMap.wristHatchGrav);//for hatch
     }else{
       Robot.wristSubsystem.moveWrist(Robot.m_oi.getDriverStick(), RobotMap.wristSpeed, RobotMap.wristGrav);//take the operator's stick and a speed of 1
     } 
