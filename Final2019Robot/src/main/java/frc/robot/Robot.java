@@ -23,7 +23,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 //Commands
 import frc.robot.commands.TeleOp;
 import frc.robot.subsystems.*;
-import frc.robot.commands.RegulatorCommand;
+import frc.robot.commands.Autonomous;
+import frc.robot.commands.DisplayInfo;
 
 public class Robot extends TimedRobot {
 
@@ -35,10 +36,12 @@ public class Robot extends TimedRobot {
   public static OI m_oi;
 
   Command m_autonomousCommand;
-  //Command regulatorCommand = new RegulatorCommand();
+  
   SendableChooser<Command> m_chooser = new SendableChooser<>();
 
   public static TeleOp teleOp = new TeleOp();
+  public static Autonomous autonomous = new Autonomous();
+  public static DisplayInfo displayInfo = new DisplayInfo();
   @Override
   public void robotInit() {
     m_oi = new OI();
@@ -69,8 +72,8 @@ public class Robot extends TimedRobot {
   public void autonomousInit() {
     m_autonomousCommand = m_chooser.getSelected();
 
-    //in autonomous, we need to run teleOp 
-    teleOp.start();//run the main teleOp command group
+    //in autonomous, we need to run autonomous
+    autonomous.start();
     
     // schedule the autonomous command (example)
     if (m_autonomousCommand != null) {
@@ -80,12 +83,14 @@ public class Robot extends TimedRobot {
 
   @Override
   public void autonomousPeriodic() {
+    //run the scheduler which goes through all the commands in the autonomous command group
     Scheduler.getInstance().run();
   }
 
   @Override
   public void teleopInit() {
-
+    //cancel autonomous command group 
+    autonomous.cancel();
     teleOp.start();//run the main teleOp command group
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();

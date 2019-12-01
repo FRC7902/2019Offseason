@@ -5,37 +5,44 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-
-//Imports
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-import frc.robot.RobotMap;
 
-public class DriveCommand extends Command {
-  public DriveCommand() {
-    //requires the subsystem it is depended on
+public class DriveAutoCommand extends Command {
+  public final Timer m_timer = new Timer();
+
+  double left;
+  double right;
+  double runTime;
+  public DriveAutoCommand(double time, double leftSpeed, double rightSpeed) {
+    // Use requires() here to declare subsystem dependencies
+    // eg. requires(chassis);
     requires (Robot.driveSubsystem);
+    runTime = time;
+    left = leftSpeed;
+    right = rightSpeed;
   }
-  
+
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.driveSubsystem.stop();//stops the motors (resets them)
+    m_timer.reset();
+    m_timer.start();
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.driveSubsystem.driveJoystick(Robot.m_oi.getDriverStick(), RobotMap.driveFBSpeed, RobotMap.driveTurnSpeed);//drive from the joystick at 0.5 speed
-    //Robot.driveSubsystem.displayInfo();
+    Robot.driveSubsystem.driveAuto(left, right);
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false; //never finished
+    return m_timer.get() > runTime;
   }
 
   // Called once after isFinished returns true

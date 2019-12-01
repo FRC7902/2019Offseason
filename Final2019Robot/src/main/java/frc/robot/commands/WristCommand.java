@@ -14,6 +14,7 @@ import frc.robot.RobotMap;
 public class WristCommand extends Command {
   public WristCommand() {
     requires(Robot.wristSubsystem);
+    requires(Robot.driveSubsystem);
   }
 
   // Called just before this Command runs the first time
@@ -25,7 +26,7 @@ public class WristCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {//when the command is running
-    Robot.wristSubsystem.displayInfo();//2, 3, 4, 5, 6
+    //Robot.wristSubsystem.displayInfo();//2, 3, 4, 5, 6
 
     if(Robot.m_oi.getDriverStick().getRawButton(RobotMap.S)){// Start Button
       Robot.wristSubsystem.resetPos();
@@ -34,7 +35,7 @@ public class WristCommand extends Command {
       //Robot.wristSubsystem.detectPresetButton();//constantly detect if button is pressed
       Robot.wristSubsystem.setWristPositionPID(RobotMap.wristCargoPos);//for cargo
     }else{
-      Robot.wristSubsystem.moveWrist(Robot.m_oi.getDriverStick(), RobotMap.wristSpeed, RobotMap.wristGrav);//take the operator's stick and a speed of 1
+      Robot.wristSubsystem.moveWristJoystick(Robot.m_oi.getDriverStick(), RobotMap.wristSpeed, RobotMap.wristGrav);//take the operator's stick and a speed of 1
     } 
     
     

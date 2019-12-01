@@ -37,13 +37,17 @@ public class WristSubsystem extends Subsystem {
   //Satellite
   public double counterGrav = 0;
 
-  public void moveWrist(Joystick joystick, double speed, double gravMult){//the method on how to move the wrist
+  public void moveWristJoystick(Joystick joystick, double speed, double gravMult){//the method on how to move the wrist
     //Move the motors based on joystick input, speed and gravity
     myTalon.set(ControlMode.PercentOutput, (joystick.getRawAxis(3)-joystick.getRawAxis(2))*speed+ counterGrav(gravMult));//the second joystick's Y-axis is the motor
     myTalon2.set(ControlMode.PercentOutput, (joystick.getRawAxis(3)-joystick.getRawAxis(2))*speed+counterGrav(gravMult));
     SmartDashboard.putNumber("Joystick Power" , (joystick.getRawAxis(3)-joystick.getRawAxis(2))*speed+ counterGrav(gravMult));
   }
 
+  public void moveWristAuto(double power){
+    myTalon.set(power);
+    myTalon2.set(power);
+  }
 
   public void stopWrist(){//disable the wrist
     myTalon.disable();
@@ -51,14 +55,6 @@ public class WristSubsystem extends Subsystem {
 
   public int getWristPosition(){//get the position
     return (myTalon.getSelectedSensorPosition() % 4096)-startPos;
-    
-    //T1 - Remedy 2
-    //return (myTalon.getSelectedSensorPosition() % 4096)
-
-    //T1 - Remedy 3
-    //return (myTalon.getSelectedSensorPosition())
-    
-
   }
 
   public void resetPos(){//Reset wristPos to 0
@@ -79,6 +75,7 @@ public class WristSubsystem extends Subsystem {
     SmartDashboard.putNumber("Pout", Pout);
     SmartDashboard.putNumber("Output", output);
     SmartDashboard.putNumber("Joystick Response:", Robot.m_oi.getDriverStick().getRawAxis(1));
+
 
   }
   
@@ -129,6 +126,8 @@ public class WristSubsystem extends Subsystem {
     myTalon2.set(ControlMode.PercentOutput, output);
     
   }
+
+
 
   @Override
   public void initDefaultCommand() {

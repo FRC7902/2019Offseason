@@ -28,7 +28,7 @@ public class IntakeCommand extends Command {
   @Override
   protected void execute() {
     //the right Bumper - the left bumper
-    Robot.intakeSubsystem.moveIntake(Robot.m_oi.getDriverStick().getRawButton(RobotMap.RB),Robot.m_oi.getDriverStick().getRawButton(RobotMap.LB), RobotMap.intakeSpeed, RobotMap.outtakeSpeed);
+    Robot.intakeSubsystem.moveIntakeJoystick(Robot.m_oi.getDriverStick(), RobotMap.intakeSpeed, RobotMap.outtakeSpeed);
   }
 
   // Make this return true when this Command no longer needs to run execute()

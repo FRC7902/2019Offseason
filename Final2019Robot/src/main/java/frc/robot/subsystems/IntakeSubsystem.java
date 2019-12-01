@@ -12,7 +12,9 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.RobotMap;
   
 
@@ -29,8 +31,9 @@ public class IntakeSubsystem extends Subsystem {
     bottomMotor.setInverted(true);
   }
 
-  public void moveIntake(boolean trig1, boolean trig2, double inSpeed, double outSpeed){//moves the intake in and out
-
+  public void moveIntakeJoystick(Joystick joystick, double inSpeed, double outSpeed){//moves the intake in and out
+    boolean trig1 = joystick.getRawButton(RobotMap.RB);
+    boolean trig2 = joystick.getRawButton(RobotMap.RB);
     if(trig1 && !trig2){//if only right
       topMotor.set(inSpeed);
       bottomMotor.set(inSpeed);
@@ -42,6 +45,15 @@ public class IntakeSubsystem extends Subsystem {
       bottomMotor.set(0);
     }
 
+  }
+
+  public void displayInfo(){
+    SmartDashboard.putNumber("Intake Output", topMotor.get());
+  }
+
+  public void moveIntakeAuto(double speed){
+    topMotor.set(speed);
+    bottomMotor.set(speed);
   }
 
   public void stopIntake(){//stops the intake
