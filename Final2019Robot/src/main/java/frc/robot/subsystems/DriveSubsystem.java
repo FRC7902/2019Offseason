@@ -75,10 +75,10 @@ public class DriveSubsystem extends Subsystem {
     rightSide.set((-joystick.getRawAxis(1)*ySpeed + joystick.getRawAxis(4)*turnSpeed)*speedLimiter);
   }
 
-  public void driveAuto(double speedLeft, double speedRight){
-    leftSide.set(speedLeft);
-    rightSide.set(speedRight);
-  }
+  // public void driveAuto(double speedLeft, double speedRight){
+  //   leftSide.set(speedLeft);
+  //   rightSide.set(speedRight);
+  // }
 
   public void displayInfo(){
     SmartDashboard.putNumber("Joystick Acceleration: ", Robot.m_oi.getDriverStick().getRawAxis(1));

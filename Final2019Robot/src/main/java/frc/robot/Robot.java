@@ -37,7 +37,7 @@ public class Robot extends TimedRobot {
 
   Command m_autonomousCommand;
   
-  SendableChooser<Command> m_chooser = new SendableChooser<>();
+  //SendableChooser<Command> m_chooser = new SendableChooser<>();
 
   public static TeleOp teleOp = new TeleOp();
   public static Autonomous autonomous = new Autonomous();
@@ -45,17 +45,17 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     m_oi = new OI();
-    CameraServer.getInstance().startAutomaticCapture();
-    m_chooser.setDefaultOption("Default Auto", new TeleOp());
+    //CameraServer.getInstance().startAutomaticCapture();
+    //m_chooser.setDefaultOption("Default Auto", new TeleOp());
     // chooser.addOption("My Auto", new MyAutoCommand());
-    SmartDashboard.putData("Auto mode", m_chooser);
+    //SmartDashboard.putData("Auto mode", m_chooser);
     
     
   }
 
   @Override
   public void robotPeriodic() {
-    
+    //displayInfo.start();
   }
 
   @Override
@@ -64,37 +64,37 @@ public class Robot extends TimedRobot {
 
   @Override
   public void disabledPeriodic() {
-    Scheduler.getInstance().run();
+    //Scheduler.getInstance().run();
   }
 
 
   @Override
   public void autonomousInit() {
-    m_autonomousCommand = m_chooser.getSelected();
+    //m_autonomousCommand = m_chooser.getSelected();
 
     //in autonomous, we need to run autonomous
-    autonomous.start();
+    //autonomous.start();
     
     // schedule the autonomous command (example)
-    if (m_autonomousCommand != null) {
-      m_autonomousCommand.start();
-    }
+    // if (m_autonomousCommand != null) {
+    //   m_autonomousCommand.start();
+    // }
   }
 
   @Override
   public void autonomousPeriodic() {
     //run the scheduler which goes through all the commands in the autonomous command group
-    Scheduler.getInstance().run();
+    //Scheduler.getInstance().run();
   }
 
   @Override
   public void teleopInit() {
     //cancel autonomous command group 
-    autonomous.cancel();
+    //autonomous.cancel();
     teleOp.start();//run the main teleOp command group
-    if (m_autonomousCommand != null) {
-      m_autonomousCommand.cancel();
-    }
+    // if (m_autonomousCommand != null) {
+    //   m_autonomousCommand.cancel();
+    // }
   }
 
   @Override
