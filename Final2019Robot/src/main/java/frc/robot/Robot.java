@@ -37,7 +37,7 @@ public class Robot extends TimedRobot {
 
   Command m_autonomousCommand;
   
-  //SendableChooser<Command> m_chooser = new SendableChooser<>();
+  SendableChooser<Command> m_chooser = new SendableChooser<>();
 
   public static TeleOp teleOp = new TeleOp();
   public static Autonomous autonomous = new Autonomous();
@@ -46,7 +46,7 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     m_oi = new OI();
     //CameraServer.getInstance().startAutomaticCapture();
-    //m_chooser.setDefaultOption("Default Auto", new TeleOp());
+    m_chooser.setDefaultOption("Default Auto", new TeleOp());
     // chooser.addOption("My Auto", new MyAutoCommand());
     //SmartDashboard.putData("Auto mode", m_chooser);
     
@@ -55,7 +55,7 @@ public class Robot extends TimedRobot {
 
   @Override
   public void robotPeriodic() {
-    //displayInfo.start();
+    displayInfo.start();
   }
 
   @Override
@@ -64,7 +64,7 @@ public class Robot extends TimedRobot {
 
   @Override
   public void disabledPeriodic() {
-    //Scheduler.getInstance().run();
+    Scheduler.getInstance().run();
   }
 
 
@@ -78,6 +78,11 @@ public class Robot extends TimedRobot {
     // schedule the autonomous command (example)
     // if (m_autonomousCommand != null) {
     //   m_autonomousCommand.start();
+    // }
+
+    //schedule the autonomous command (example)
+    // if (autonomous != null) {
+    //   autonomous.start();
     // }
   }
 
