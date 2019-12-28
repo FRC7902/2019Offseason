@@ -5,7 +5,6 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-//I made a change
 
 
 
@@ -46,8 +45,8 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     m_oi = new OI();
     //CameraServer.getInstance().startAutomaticCapture();
-    m_chooser.setDefaultOption("Default Auto", new TeleOp());
-    // chooser.addOption("My Auto", new MyAutoCommand());
+    //m_chooser.setDefaultOption("Default Auto", new TeleOp());
+    //chooser.addOption("My Auto", new MyAutoCommand());
     //SmartDashboard.putData("Auto mode", m_chooser);
     
     
@@ -55,7 +54,7 @@ public class Robot extends TimedRobot {
 
   @Override
   public void robotPeriodic() {
-    displayInfo.start();
+    //displayInfo.start();
   }
 
   @Override

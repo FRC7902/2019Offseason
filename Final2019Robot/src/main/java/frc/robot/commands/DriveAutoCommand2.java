@@ -7,54 +7,56 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 
-public class DriveAutoCommand extends Command {
-  public final Timer m_timer = new Timer();
+public class DriveAutoCommand2 extends Command {
 
-  double left;
-  double right;
-  double runTime;
-  public DriveAutoCommand(double time, double leftSpeed, double rightSpeed) {
+  double autoWaitTime;
+  double autoDriveTime;
+
+  public DriveAutoCommand2() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires (Robot.driveSubsystem);
-    runTime = time;
-    left = leftSpeed;
-    right = rightSpeed;
+    requires(Robot.driveSubsystem);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    m_timer.reset();
-    m_timer.start();
+    SmartDashboard.setDefaultNumber("Wait Timer", 0);
+    autoWaitTime = SmartDashboard.getNumber("Wait Timer", 0);
+    autoDriveTime = 2;
+
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.driveSubsystem.driveAuto(left, right);
+    double timeElapsed = 15- DriverStation.getInstance().getMatchTime();
+    if(timeElapsed >= autoWaitTime){
+      if(timeElapsed <=autoWaitTime + autoDriveTime){
+        Robot.driveSubsystem.driveAuto(0.5, 0.5);
+      }
+    }
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return m_timer.get() > runTime;
+    return false;
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.driveSubsystem.stop();
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    end();
   }
 }

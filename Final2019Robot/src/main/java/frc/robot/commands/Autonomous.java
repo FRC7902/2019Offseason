@@ -14,16 +14,16 @@ public class Autonomous extends CommandGroup {
    * Add your docs here.
    */
   public Autonomous() {
-    // addParallel(new WristAutoCommand(2.0, -0.5)); //move wrist down
-    // addParallel(new IntakeAutoCommand(2.0, -0.5)); //intake ball
-    // addSequential(new DriveAutoCommand(2.0, 0.5, 0.5)); //drive forward
+    addParallel(new WristAutoCommand(2.0, -0.5)); //move wrist down
+    addParallel(new IntakeAutoCommand(2.0, -0.5)); //intake ball
+    addSequential(new DriveAutoCommand(2.0, 0.5, 0.5)); //drive forward
 
     
-    // addSequential(new DriveAutoCommand(1.0, -0.5, 0.5)); //turn left
+    addSequential(new DriveAutoCommand(1.0, -0.5, 0.5)); //turn left
 
-    // addParallel(new WristAutoCommand(2.0, 0.5)); //move wrist up
-    // addParallel(new IntakeAutoCommand(2.0, 0.5)); //eject ball out
-    // addSequential(new DriveAutoCommand(2.0, 0.5, 0.5)); //drive forward
+    addParallel(new WristAutoCommand(2.0, 0.5)); //move wrist up
+    addParallel(new IntakeAutoCommand(2.0, 0.5)); //eject ball out
+    addSequential(new DriveAutoCommand(2.0, 0.5, 0.5)); //drive forward
 
 
     // Add Commands here:
