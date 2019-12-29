@@ -44,17 +44,17 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     m_oi = new OI();
-    
+    //CameraServer.getInstance().startAutomaticCapture();
     m_chooser.setDefaultOption("Auto1", new Autonomous());
     SmartDashboard.putData("Auto mode Selector", m_chooser);
-    //CameraServer.getInstance().startAutomaticCapture();
+    
 
     
   }
 
   @Override
   public void robotPeriodic() {
-    //displayInfo.start();
+    displayInfo.start();
   }
 
   @Override
@@ -69,36 +69,33 @@ public class Robot extends TimedRobot {
 
   @Override
   public void autonomousInit() {
-    //m_autonomousCommand = m_chooser.getSelected();
+    m_autonomousCommand = m_chooser.getSelected();
 
     //in autonomous, we need to run autonomous
     //autonomous.start();
     
-    // schedule the autonomous command (example)
-    // if (m_autonomousCommand != null) {
-    //   m_autonomousCommand.start();
-    // }
-
     //schedule the autonomous command (example)
-    // if (autonomous != null) {
-    //   autonomous.start();
-    // }
+    if (m_autonomousCommand != null) {
+      m_autonomousCommand.start();
+    }
+
   }
 
   @Override
   public void autonomousPeriodic() {
     //run the scheduler which goes through all the commands in the autonomous command group
-    //Scheduler.getInstance().run();
+    Scheduler.getInstance().run();
   }
 
   @Override
   public void teleopInit() {
     //cancel autonomous command group 
     //autonomous.cancel();
+    if (m_autonomousCommand != null) {
+      m_autonomousCommand.cancel();
+    }
     teleOp.start();//run the main teleOp command group
-    // if (m_autonomousCommand != null) {
-    //   m_autonomousCommand.cancel();
-    // }
+    
   }
 
   @Override
