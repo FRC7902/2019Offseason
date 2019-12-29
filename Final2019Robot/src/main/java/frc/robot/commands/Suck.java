@@ -5,43 +5,40 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-
-//Imports
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-import frc.robot.RobotMap;
 
-public class DriveCommand extends Command {
-  public DriveCommand() {
-    //requires the subsystem it is depended on
-    requires (Robot.driveSubsystem);
+public class Suck extends Command {
+  public Suck() {
+    // Use requires() here to declare subsystem dependencies
+    // eg. requires(chassis);
+    requires(Robot.intakeSubsystem);
   }
-  
+
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.driveSubsystem.stop();//stops the motors (resets them)
+    Robot.intakeSubsystem.stopIntake();
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.driveSubsystem.driveJoystick(Robot.m_oi.getDriverStick(), RobotMap.driveFBSpeed, RobotMap.driveTurnSpeed);//drive from the joystick at 0.5 speed
-    //Robot.driveSubsystem.displayInfo();
+    Robot.intakeSubsystem.moveIntake(0.75);
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false; //never finished
+    return false;
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.driveSubsystem.stop();
+    Robot.intakeSubsystem.stopIntake();
   }
 
   // Called when another command which requires one or more of the same

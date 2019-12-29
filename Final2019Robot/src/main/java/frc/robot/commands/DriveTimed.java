@@ -7,46 +7,47 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-public class WristAutoCommand extends Command {
-  double runTime;
-  double power;
-  public final Timer m_timer = new Timer();
+//This Command drives the robot for a specific amount of time at a specific speed
+public class DriveTimed extends Command {
+  double left;
+  double right;
+  
 
-  public WristAutoCommand(double time, double speed) {
+  public DriveTimed(double time, double leftSpeed, double rightSpeed) {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires (Robot.wristSubsystem);
-    runTime = time;
-    power = speed;
+    requires(Robot.driveSubsystem);
+    left = leftSpeed;
+    right = rightSpeed;
+    setTimeout(time);
+
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    m_timer.reset();
-    m_timer.start();
+    Robot.driveSubsystem.stop();//stops the motors before running them (resetting)
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.wristSubsystem.moveWrist(power);
+    Robot.driveSubsystem.drive(left, right);
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return m_timer.get() > runTime;
+    return isTimedOut();
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.wristSubsystem.stopWrist();
+    Robot.driveSubsystem.stop();
   }
 
   // Called when another command which requires one or more of the same

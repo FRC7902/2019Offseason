@@ -56,26 +56,13 @@ public class DriveSubsystem extends Subsystem {
     double ySpeed = fSpeed;
     double turnSpeed = tSpeed;
     double speedLimiter = RobotMap.driveSpeedLimiter; //A value in between 0 and 1 for max speed limit
-
-    // microDriveFBButtonPressed = joystick.getRawButton(RobotMap.driveMicroFBButton);
-    // microDriveTurnButtonPressed = joystick.getRawButton(RobotMap.driveMicroTurnButton);
-
-    
-    //MicroDrive Code (May not be relevant)
-    // if(joystick.getRawButton(RobotMap.driveMicroFBButton)){//microDrive for Front and Back
-    //   ySpeed = 0.01;
-      
-    // }
-    // if(joystick.getRawButton(RobotMap.driveMicroTurnButton)){//microDrive for turning
-    //   turnSpeed = 0.01;
-    // }
     
     
     leftSide.set((-joystick.getRawAxis(1)*ySpeed - joystick.getRawAxis(4)*turnSpeed)*speedLimiter);
     rightSide.set((-joystick.getRawAxis(1)*ySpeed + joystick.getRawAxis(4)*turnSpeed)*speedLimiter);
   }
 
-  public void driveAuto(double speedLeft, double speedRight){
+  public void drive(double speedLeft, double speedRight){
     leftSide.set(speedLeft);
     rightSide.set(speedRight);
   }

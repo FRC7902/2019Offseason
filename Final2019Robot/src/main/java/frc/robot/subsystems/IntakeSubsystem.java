@@ -51,7 +51,7 @@ public class IntakeSubsystem extends Subsystem {
     SmartDashboard.putNumber("Intake Output", topMotor.get());
   }
 
-  public void moveIntakeAuto(double speed){
+  public void moveIntake(double speed){
     topMotor.set(speed);
     bottomMotor.set(speed);
   }

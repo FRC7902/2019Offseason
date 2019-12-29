@@ -38,7 +38,7 @@ public class DriveAutoCommand2 extends Command {
     double timeElapsed = 15- DriverStation.getInstance().getMatchTime();
     if(timeElapsed >= autoWaitTime){
       if(timeElapsed <=autoWaitTime + autoDriveTime){
-        Robot.driveSubsystem.driveAuto(0.5, 0.5);
+        Robot.driveSubsystem.drive(0.5, 0.5);
       }
     }
   }

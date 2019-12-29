@@ -44,11 +44,11 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     m_oi = new OI();
-    //CameraServer.getInstance().startAutomaticCapture();
-    //m_chooser.setDefaultOption("Default Auto", new TeleOp());
-    //chooser.addOption("My Auto", new MyAutoCommand());
-    //SmartDashboard.putData("Auto mode", m_chooser);
     
+    m_chooser.setDefaultOption("Auto1", new Autonomous());
+    SmartDashboard.putData("Auto mode Selector", m_chooser);
+    //CameraServer.getInstance().startAutomaticCapture();
+
     
   }
 

@@ -44,7 +44,7 @@ public class WristSubsystem extends Subsystem {
     SmartDashboard.putNumber("Joystick Power" , (joystick.getRawAxis(3)-joystick.getRawAxis(2))*speed+ counterGrav(gravMult));
   }
 
-  public void moveWristAuto(double power){
+  public void moveWrist(double power){
     myTalon.set(power);
     myTalon2.set(power);
   }

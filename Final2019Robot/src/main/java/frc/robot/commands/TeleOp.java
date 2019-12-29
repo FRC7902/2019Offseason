@@ -13,9 +13,9 @@ public class TeleOp extends CommandGroup {
   
   public TeleOp() {
     //these will all run at the same time
-    addParallel(new DriveCommand());
-    addParallel(new WristCommand());
-    addParallel(new IntakeCommand());
+    addParallel(new DriveJoystick());
+    addParallel(new WristJoystick());
+    //addParallel(new IntakeCommand());
     //addParallel(new SolenoidCommand());
     //addParallel(new RegulatorCommand());
   }

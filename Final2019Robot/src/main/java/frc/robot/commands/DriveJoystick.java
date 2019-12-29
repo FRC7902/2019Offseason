@@ -5,48 +5,45 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
+
+//Imports
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import frc.robot.RobotMap;
 
-public class WristAutoCommand extends Command {
-  double runTime;
-  double power;
-  public final Timer m_timer = new Timer();
-
-  public WristAutoCommand(double time, double speed) {
-    // Use requires() here to declare subsystem dependencies
-    // eg. requires(chassis);
-    requires (Robot.wristSubsystem);
-    runTime = time;
-    power = speed;
+public class DriveJoystick extends Command {
+  public DriveJoystick() {
+    //requires the subsystem it is depended on
+    requires (Robot.driveSubsystem);
   }
-
+  
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    m_timer.reset();
-    m_timer.start();
+    Robot.driveSubsystem.stop();//stops the motors (resets them)
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.wristSubsystem.moveWrist(power);
+    //Robot.driveSubsystem.driveJoystick(Robot.m_oi.getDriverStick(), RobotMap.driveFBSpeed, RobotMap.driveTurnSpeed);//drive from the joystick at 0.5 speed
+    //Robot.driveSubsystem.displayInfo();
+    Robot.driveSubsystem.drive((-Robot.m_oi.getDriverStick().getRawAxis(1)*RobotMap.driveFBSpeed - Robot.m_oi.getDriverStick().getRawAxis(4)*RobotMap.driveTurnSpeed)*RobotMap.driveSpeedLimiter,  
+    (-Robot.m_oi.getDriverStick().getRawAxis(1)*RobotMap.driveFBSpeed + Robot.m_oi.getDriverStick().getRawAxis(4)*RobotMap.driveTurnSpeed)*RobotMap.driveSpeedLimiter);
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return m_timer.get() > runTime;
+    return false; //never finished
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.wristSubsystem.stopWrist();
+    Robot.driveSubsystem.stop();
   }
 
   // Called when another command which requires one or more of the same
