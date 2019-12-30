@@ -30,8 +30,8 @@ public class Robot extends TimedRobot {
   public static DriveSubsystem driveSubsystem = new DriveSubsystem();
   public static IntakeSubsystem intakeSubsystem = new IntakeSubsystem();
   public static WristSubsystem wristSubsystem = new WristSubsystem();
-  public static SolenoidSubsystem solenoidSubsystem = new SolenoidSubsystem();
-  public static RegulatorSubsystem regulatorSubsystem = new RegulatorSubsystem();
+  //public static SolenoidSubsystem solenoidSubsystem = new SolenoidSubsystem();
+  //public static RegulatorSubsystem regulatorSubsystem = new RegulatorSubsystem();
   public static OI m_oi;
 
   Command m_autonomousCommand;
@@ -63,7 +63,7 @@ public class Robot extends TimedRobot {
 
   @Override
   public void disabledPeriodic() {
-    Scheduler.getInstance().run();
+    // Scheduler.getInstance().run();
   }
 
 
@@ -95,6 +95,7 @@ public class Robot extends TimedRobot {
       m_autonomousCommand.cancel();
     }
     teleOp.start();//run the main teleOp command group
+    Scheduler.getInstance().run();
     
   }
 

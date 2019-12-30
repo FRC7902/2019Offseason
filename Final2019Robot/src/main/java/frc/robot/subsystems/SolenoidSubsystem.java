@@ -18,32 +18,32 @@ import edu.wpi.first.wpilibj.DigitalInput;
 public class SolenoidSubsystem extends Subsystem {
 
   // Declaration and Initiation
-  private DoubleSolenoid doubleSolenoid = new DoubleSolenoid(RobotMap.frontValve, RobotMap.backValve);
-  private DigitalInput mag = new DigitalInput(RobotMap.magSwitch);
+  //private DoubleSolenoid doubleSolenoid = new DoubleSolenoid(RobotMap.frontValve, RobotMap.backValve);
+  //private DigitalInput mag = new DigitalInput(RobotMap.magSwitch);
   
   public SolenoidSubsystem() {
     // Close both channels
-    doubleSolenoid.set(DoubleSolenoid.Value.kOff);
+    //doubleSolenoid.set(DoubleSolenoid.Value.kOff);
   }
 
   // Should extend if mechanic team connected the system up correctly
   public void openFrontValve() {
-    doubleSolenoid.set(DoubleSolenoid.Value.kForward);
+    //doubleSolenoid.set(DoubleSolenoid.Value.kForward);
   }
 
   // Close Both Valves
   public void closeValve() {
-    doubleSolenoid.set(DoubleSolenoid.Value.kOff);
+    //doubleSolenoid.set(DoubleSolenoid.Value.kOff);
   }
 
   // Vice versa
   public void openBackValve() {
-    doubleSolenoid.set(DoubleSolenoid.Value.kReverse);
+    //doubleSolenoid.set(DoubleSolenoid.Value.kReverse);
   }
 
   // Get state of solenoid
   public boolean getState() {
-    return mag.get();
+    return false; //mag.get();
   }
 
   @Override

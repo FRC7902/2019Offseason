@@ -29,7 +29,7 @@ public class OI {
       buttonRightAxis = new JoystickButton(driverStick, 10);
 
   public OI(){
-    buttonA.whileHeld(new SetWristPosition());
+    // buttonA.whileHeld(new SetWristPosition());
     buttonLeftBumper.whileHeld(new Spit());
     buttonRightBumper.whileHeld(new Suck());
   }

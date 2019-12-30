@@ -14,13 +14,13 @@ public class RegulatorCommand extends Command {
   public RegulatorCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.regulatorSubsystem);
+    //requires(Robot.regulatorSubsystem);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.regulatorSubsystem.start();
+    //Robot.regulatorSubsystem.start();
   }
 
   // Called repeatedly when this Command is scheduled to run
@@ -37,7 +37,7 @@ public class RegulatorCommand extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.regulatorSubsystem.stop();
+    //Robot.regulatorSubsystem.stop();
   }
 
   // Called when another command which requires one or more of the same

@@ -20,19 +20,19 @@ public class RegulatorSubsystem extends Subsystem {
   private Compressor comp;
 
   public RegulatorSubsystem() {
-    comp = new Compressor();
+    //comp = new Compressor();
     // Turns on the limiter at 125psi
-    comp.setClosedLoopControl(true);
+    //comp.setClosedLoopControl(true);
   }
 
   // Turn on compressor
   public void start() {
-    comp.start();
+    //comp.start();
   }
 
   // Turn off compressor
   public void stop() {
-    comp.stop();
+    //comp.stop();
   }
 
   /**
@@ -43,9 +43,9 @@ public class RegulatorSubsystem extends Subsystem {
    */
   @Deprecated
   public void setLimiter(boolean state) {
-    if(!state)
-      stop();
-    comp.setClosedLoopControl(state);
+    // if(!state)
+    //   stop();
+    // comp.setClosedLoopControl(state);
   }
 
   @Override

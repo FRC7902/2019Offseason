@@ -14,9 +14,9 @@ public class DisplayInfo extends Command {
   public DisplayInfo() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires (Robot.wristSubsystem);
-    requires (Robot.driveSubsystem);
-    requires (Robot.intakeSubsystem);
+    // requires (Robot.wristSubsystem);
+    // requires (Robot.driveSubsystem);
+    // requires (Robot.intakeSubsystem);
     
   }
 

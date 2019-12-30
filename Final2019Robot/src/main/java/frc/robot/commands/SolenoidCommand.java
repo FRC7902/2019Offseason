@@ -17,40 +17,40 @@ public class SolenoidCommand extends Command {
   public SolenoidCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires (Robot.solenoidSubsystem);
+    //requires (Robot.solenoidSubsystem);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    startChecker();
-    Robot.solenoidSubsystem.closeValve();
+    //startChecker();
+    //Robot.solenoidSubsystem.closeValve();
   }
 
-  protected void startChecker() {
-    Thread checker = new Thread(() -> {
-      // Get pass state
-      boolean oldState = Robot.solenoidSubsystem.getState();
-      while(!isFinished()) {
-        if(oldState != Robot.solenoidSubsystem.getState())
-          SmartDashboard.putString("Solenoid State", (Robot.solenoidSubsystem.getState()? "Open" : "Close"));
-      }
-    });
-    checker.run();
-  }
+  // protected void startChecker() {
+  //   Thread checker = new Thread(() -> {
+  //     // Get pass state
+  //     boolean oldState = Robot.solenoidSubsystem.getState();
+  //     while(!isFinished()) {
+  //       if(oldState != Robot.solenoidSubsystem.getState())
+  //         SmartDashboard.putString("Solenoid State", (Robot.solenoidSubsystem.getState()? "Open" : "Close"));
+  //     }
+  //   });
+  //   checker.run();
+  // }
 
   // Called repeatedly when this Command is scheduled to run
   // Find new button to control Solenoid
   @Override
   protected void execute() {
-    if(Robot.m_oi.getDriverStick().getRawButton(RobotMap.B)){
-      //Robot.solenoidSubsystem.closeValve();
-      Robot.solenoidSubsystem.openFrontValve();
-    }
-    if(Robot.m_oi.getDriverStick().getRawButton(RobotMap.X)){
-      //Robot.solenoidSubsystem.closeValve();
-      Robot.solenoidSubsystem.openBackValve();
-    }
+    // if(Robot.m_oi.getDriverStick().getRawButton(RobotMap.B)){
+    //   //Robot.solenoidSubsystem.closeValve();
+    //   Robot.solenoidSubsystem.openFrontValve();
+    // }
+    // if(Robot.m_oi.getDriverStick().getRawButton(RobotMap.X)){
+    //   //Robot.solenoidSubsystem.closeValve();
+    //   Robot.solenoidSubsystem.openBackValve();
+    // }
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -62,7 +62,7 @@ public class SolenoidCommand extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.solenoidSubsystem.closeValve();
+    //Robot.solenoidSubsystem.closeValve();
   }
 
   // Called when another command which requires one or more of the same

@@ -26,7 +26,18 @@ public class WristJoystick extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.wristSubsystem.moveWrist((Robot.m_oi.getDriverStick().getRawAxis(3)-Robot.m_oi.getDriverStick().getRawAxis(2))*RobotMap.wristSpeed+ Robot.wristSubsystem.counterGrav(RobotMap.wristGrav));
+    //Robot.wristSubsystem.displayInfo();
+
+    if(Robot.m_oi.getDriverStick().getRawButton(RobotMap.S)){// Start Button
+      Robot.wristSubsystem.resetPos();
+    }
+    if(Robot.m_oi.getDriverStick().getRawButton(RobotMap.A)){//A button
+      //Robot.wristSubsystem.detectPresetButton();//constantly detect if button is pressed
+      Robot.wristSubsystem.setWristPositionPID(RobotMap.wristCargoPos);//for cargo
+    }else{
+      Robot.wristSubsystem.moveWrist((Robot.m_oi.getDriverStick().getRawAxis(3)-Robot.m_oi.getDriverStick().getRawAxis(2))*RobotMap.wristSpeed+ Robot.wristSubsystem.counterGrav(RobotMap.wristGrav));
+    } 
+    
   }
 
   // Make this return true when this Command no longer needs to run execute()

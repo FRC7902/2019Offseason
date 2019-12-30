@@ -84,8 +84,8 @@ public class RobotMap {
   // public static final int wristBackLimit = 0;//the backmost position the wrist can reach
   // public static final int wristFrontLimit = 1024;//the frontmost position the wrist can reach
   //PID Wrist
-  public static final double Pmult = 0.0005;
-  public static final double Imult = 0;
+  public static final double Pmult = 0.001;
+  public static final double Imult = 0.0008;
 
   public static final double Pweight = 1;
   public static final double Iweight = 1;
